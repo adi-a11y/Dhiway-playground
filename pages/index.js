@@ -65,7 +65,7 @@ class Index extends Component {
                 if(data.result == "SUCCESS"){
                     swal({
                         title: "SUCCESS!",
-                        text: JSON.stringify(data.vc),
+                        text: JSON.stringify(data.vc).slice(0,200),
                         icon: "success",
                     });
                 }
@@ -114,7 +114,7 @@ class Index extends Component {
                             if(data.result == "SUCCESS"){
                                 swal({
                                     title: "SUCCESS!",
-                                    text: JSON.stringify(data.vc),
+                                    text: JSON.stringify(data.vc).slice(0,200),
                                     icon: "success",
                                 });
                             }
@@ -142,8 +142,8 @@ class Index extends Component {
                 <Tab.Group>
                     <Tab.List>
                        <div style={{marginLeft:'29em',marginBottom:'1em'}} >
-                        <Tab className={'btn btn-light col-md-1'} style={{marginLeft:'1em',color:'white',backgroundColor:'#453b66'}}>CERTIFICATE</Tab>
-                        <Tab className={'btn btn-light col-md-1'} style={{marginLeft:'1em',color:'white',backgroundColor:'#453b66'}}>IDENTITY</Tab>
+                        <Tab className={'btn btn-light'} style={{marginLeft:'1em',color:'white',backgroundColor:'#453b66'}}>CERTIFICATE</Tab>
+                        <Tab className={'btn btn-light'} style={{marginLeft:'1em',color:'white',backgroundColor:'#453b66'}}>IDENTITY</Tab>
                         </div>
                     </Tab.List>
                     <Tab.Panels>
@@ -193,13 +193,13 @@ class Index extends Component {
                                             </div>
                                             <div className="col-md-6">
                                               <label className="form-label">Start Date</label>
-                                              <input type="text" className="form-control" id="your-subject" name="your-subject"
+                                              <input type="date" className="form-control" id="your-subject" name="your-subject"
                                               value={this.state.startDate}
                                               onChange={event => this.setState({startDate:event.target.value})} required/>
                                             </div>
                                             <div className="col-md-6">
                                               <label className="form-label">End Date</label>
-                                              <input type="text" className="form-control" id="your-subject" name="your-subject"
+                                              <input type="date" className="form-control" id="your-subject" name="your-subject"
                                               value={this.state.endDate}
                                               onChange={event => this.setState({endDate:event.target.value})} required/>
                                             </div>
@@ -230,8 +230,84 @@ class Index extends Component {
                                     </div>
                                 </div>   
                             </div>
-    
-                        
+                        </Tab.Panel>
+                        <Tab.Panel>
+                        <div className='row justify-content-center'>
+                                <div className="card col-md-6" style={{backgroundColor:'#453b66'}}>
+                                    <div class="card-body">
+                                    <div className="container my-5">
+                                    <div className="row justify-content-around">
+                                      <div className="col-lg-9">
+                                        <form onSubmit={this.onSubmit3}>
+                                          <div className="row g-3 text-dark">
+                                            <div className="col-md-6">
+                                              <label className="form-label">Your Name</label>
+                                              <input type="text" className="form-control" id="your-name" name="your-name"
+                                              value={this.state.name} onChange={event => this.setState({name:event.target.value})} required/>
+                                            </div>
+                                            <div className="col-md-6">
+                                              <label className="form-label">Gender</label>
+                                              <input type="text" className="form-control" id="your-email" name="your-email" 
+                                              value={this.state.gender}
+                                              onChange={event => this.setState({gender:event.target.value})} required/>
+                                            </div>
+                                            <div className="col-md-6">
+                                              <label className="form-label">Contact Number</label>
+                                              <input type="text" className="form-control" id="your-surname" name="your-surname" 
+                                               value={this.state.contactNumber}
+                                               onChange={event => this.setState({contactNumber:event.target.value})} required/>
+                                            </div>
+                                            <div className="col-md-6">
+                                              <label className="form-label">Pincode</label>
+                                              <input type="text" className="form-control" id="your-subject" name="your-subject"
+                                              value={this.state.pincode}
+                                              onChange={event => this.setState({pincode:event.target.value})} required/>
+                                            </div>
+                                            <div className="col-md-6">
+                                              <label className="form-label">Id</label>
+                                              <input type="text" className="form-control" id="your-subject" name="your-subject"
+                                              value={this.state.id}
+                                              onChange={event => this.setState({id:event.target.value})} required/>
+                                            </div>
+                                            <div className="col-md-6">
+                                              <label className="form-label">Date of Birth</label>
+                                              <input type="date" className="form-control" id="your-subject" name="your-subject"
+                                              value={this.state.dob}
+                                              onChange={event => this.setState({dob:event.target.value})} required/>
+                                            </div>
+                                            <div className="col-md-6">
+                                              <label className="form-label">Email</label>
+                                              <input type="email" className="form-control" id="your-subject" name="your-subject"
+                                              value={this.state.emailId}
+                                              onChange={event => this.setState({emailId:event.target.value})} required/>
+                                            </div>
+                                            <div className="col-md-6">
+                                              <label className="form-label">Address</label>
+                                              <input type="text" className="form-control" id="your-subject" name="your-subject"
+                                              value={this.state.address}
+                                              onChange={event => this.setState({address:event.target.value})} required/>
+                                            </div>
+                                            <div className="col-md-6">
+                                                <br></br>
+                                            </div>
+                                            <div className="col-12">
+                                              <div className="row">
+                                                <div className="col-md-12">
+                                                  <button loading={this.state.loading} className="btn btn-dark w-100 fw-bold bg-dark">Issue</button>
+                                                  <br></br>
+                                                  <br></br>
+                                                
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </form>
+                                      </div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                </div>   
+                            </div>
                         </Tab.Panel>
                     </Tab.Panels>
                 </Tab.Group>
@@ -242,3 +318,5 @@ class Index extends Component {
 }
 
 export default Index;
+
+                                    
